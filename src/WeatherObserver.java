@@ -1,2 +1,2 @@
-public class WeatherObserver {
+public interface WeatherObserver {
 }
