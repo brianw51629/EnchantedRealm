@@ -1,7 +1,6 @@
 public class LabPatternsFantasy {
 
     public static void main(String[] args) {
-
         //
         WeatherStone stoneA = WeatherStone.getInstance();
         WeatherStone stoneB = WeatherStone.getInstance();
