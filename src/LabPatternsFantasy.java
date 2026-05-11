@@ -17,7 +17,6 @@ public class LabPatternsFantasy {
         Hero hero = new BasicHero("Warrior");
         hero = new StrengthBoost(hero);
         hero = new SpeedBoost(hero);
-        hero = new ShieldBlessing(hero);
         hero.showInfo();
 
     }

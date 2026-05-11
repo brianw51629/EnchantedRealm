@@ -1,7 +1,4 @@
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeSupport;
-
-public class WeatherStone {
+public class WeatherStone extends WeatherObservable {
     private static WeatherStone instance;
     private String currentWeather;
 
@@ -16,23 +13,13 @@ public class WeatherStone {
         return instance;
     }
 
-    private PropertyChangeSupport support = new PropertyChangeSupport(this);
-
-    public void addObserver(PropertyChangeListener listener) {
-        support.addPropertyChangeListener(listener);
-    }
-
-    public void removeObserver(PropertyChangeListener listener) {
-        support.removePropertyChangeListener(listener);
-    }
-
-    public void setWeather(String weather) {
-        this.currentWeather = weather;
-        support.firePropertyChange("weather", null, weather);
-
+    public void setWeather(String newWeather) {
+        currentWeather = newWeather;
+        setChanged();
+        notifyObservers(newWeather);
     }
 
     public String getWeather() {
-        return this.currentWeather;
+        return currentWeather;
     }
 }
